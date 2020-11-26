@@ -37,9 +37,10 @@ namespace BleBalanceReader
             Console.WriteLine($"client.Connected={client.Connected}");
             Console.WriteLine($"stream != null={stream != null}");
             Console.WriteLine($"stream.DataAvailable={stream.DataAvailable}");
-            while (client.Connected
-                && stream != null
-                && stream.DataAvailable)
+            //while (client.Connected
+            //    && stream != null
+            //    && stream.DataAvailable)
+            for (int readCount = 0; readCount < 200; readCount++)//最多读200次重量
             {
                 while (stream.ReadByte() != 61) ;//skip until ascii =
                 byte[] bytes = new byte[4];
