@@ -34,6 +34,9 @@ namespace BleBalanceReader
             }
             NetworkStream stream = client.GetStream();
             string weight = "";
+            Console.WriteLine($"client.Connected={client.Connected}");
+            Console.WriteLine($"stream != null={stream != null}");
+            Console.WriteLine($"stream.DataAvailable={stream.DataAvailable}");
             while (client.Connected
                 && stream != null
                 && stream.DataAvailable)
